@@ -12,7 +12,7 @@ services:
     restart: always
     networks:
       - internal_network
-      - nginx_network
+      - ${NGINX_PROXY_NETWORK}
     volumes:
       - ${HOST_CONFIG_DIR}:/var/www/html/config
       - ${HOST_DATA_DIR}:/var/www/html/data
@@ -53,4 +53,5 @@ services:
 networks:
   internal_network:
   nginx_network:
+    name: ${NGINX_PROXY_NETWORK}
     external: true 

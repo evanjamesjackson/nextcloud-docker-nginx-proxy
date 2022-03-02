@@ -1,4 +1,3 @@
-# nextcloud-docker
 Nextcloud Docker containers (with compose) automatically configured to work with https://github.com/nginx-proxy/nginx-proxy and https://github.com/nginx-proxy/acme-companion.
 
 ## Prerequsites

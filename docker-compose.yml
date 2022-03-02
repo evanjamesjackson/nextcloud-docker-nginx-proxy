@@ -4,9 +4,6 @@ services:
   nextcloud:
     container_name: nextcloud
     image: nextcloud
-    build:
-      context: ./
-      dockerfile: ./Dockerfile
     depends_on: 
       - nextcloud-db
     restart: always

@@ -11,8 +11,7 @@ services:
       - internal_network
       - ${NGINX_PROXY_NETWORK}
     volumes:
-      - ${HOST_CONFIG_DIR}:/var/www/html/config
-      - ${HOST_DATA_DIR}:/var/www/html/data
+      - ${HOST_NEXTCLOUD_DIR}:/var/www/html
     environment:
       NEXTCLOUD_TRUSTED_DOMAINS: ${DOMAIN_NAME} # required to get rid of "untrusted domains" error
       NEXTCLOUD_DATA_DIR: /var/www/html/data

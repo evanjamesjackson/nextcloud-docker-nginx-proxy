@@ -1,7 +1,7 @@
 Nextcloud Docker containers (with compose) automatically configured to work with https://github.com/nginx-proxy/nginx-proxy and https://github.com/nginx-proxy/acme-companion.
 
 ## Prerequsites
-In order to use these containers you must have a running [nginx-proxy](https://github.com/nginx-proxy/nginx-proxy) container attached to an existing Docker network. Optionally, you may also have an [acme-companion](https://github.com/nginx-proxy/acme-companion) instance running, which will automatically configure HTTPS for Nextcloud.
+In order to use these containers you must have a running [nginx-proxy](https://github.com/nginx-proxy/nginx-proxy) container attached to an existing Docker network. Optionally, you may also have an [acme-companion](https://github.com/nginx-proxy/acme-companion) instance running, which will automatically configure HTTPS for Nextcloud. A working example of each can be found [here](https://github.com/evanjamesjackson/nginx-proxy-with-acme-companion).
 
 ## Setup
 1. Clone the repository.

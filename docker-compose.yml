@@ -14,9 +14,7 @@ services:
       - ${HOST_CONFIG_DIR}:/var/www/html/config
       - ${HOST_DATA_DIR}:/var/www/html/data
     environment:
-      PUID: ${PUID}
-      GUID: ${GUID}
-      NEXTCLOUD_TRUSTED_DOMAINS: ${HOST_NAME} # required to get rid of "untrusted domains" error
+      NEXTCLOUD_TRUSTED_DOMAINS: ${DOMAIN_NAME} # required to get rid of "untrusted domains" error
       NEXTCLOUD_DATA_DIR: /var/www/html/data
       NEXTCLOUD_ADMIN_USER: admin
       NEXTCLOUD_ADMIN_PASSWORD: ${ADMIN_PASSWORD}
@@ -26,8 +24,8 @@ services:
       MYSQL_USER: nextcloud
       MYSQL_PASSWORD: ${DATABASE_PASSWORD}
       # The following settings allow this container to work with nginx-proxy and acme-companion
-      VIRTUAL_HOST: ${HOST_NAME}
-      LETSENCRYPT_HOST: ${HOST_NAME}
+      VIRTUAL_HOST: ${DOMAIN_NAME}
+      LETSENCRYPT_HOST: ${DOMAIN_NAME}
       VIRTUAL_PORT: 80
 
   nextcloud-db:
@@ -40,8 +38,6 @@ services:
     volumes:
       - ${HOST_DB_DIR}:/var/lib/mysql
     environment:
-      PUID: ${PUID}
-      GUID: ${GUID}
       MYSQL_DATABASE: nextcloud
       MYSQL_USER: nextcloud
       MYSQL_ROOT_PASSWORD: ${DATABASE_PASSWORD}

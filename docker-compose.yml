@@ -6,7 +6,7 @@ services:
     image: nextcloud
     depends_on: 
       - nextcloud-db
-    restart: always
+    restart: unless-stopped
     networks:
       - internal_network
       - ${NGINX_PROXY_NETWORK}
@@ -31,7 +31,7 @@ services:
     container_name: nextcloud-db
     image: mariadb
     command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW --innodb-file-per-table=1 --skip-innodb-read-only-compressed
-    restart: always
+    restart: unless-stopped
     networks:
       - internal_network
     volumes:

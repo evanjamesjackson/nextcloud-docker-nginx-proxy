@@ -3,7 +3,12 @@ version: "3.5"
 services:
   nextcloud:
     container_name: nextcloud
-    image: nextcloud
+    build:
+      dockerfile: ./Dockerfile
+      context: .
+      args:
+        - UID=${UID}
+        - GID=${GID}
     depends_on: 
       - nextcloud-db
     restart: unless-stopped
@@ -11,7 +16,8 @@ services:
       - internal_network
       - ${NGINX_PROXY_NETWORK}
     volumes:
-      - ${HOST_NEXTCLOUD_DIR}:/var/www/html
+      - ${APP_DIR}:/var/www/html
+      - ${DATA_DIR}:/var/www/html/data
     environment:
       NEXTCLOUD_TRUSTED_DOMAINS: ${DOMAIN_NAME} # required to get rid of "untrusted domains" error
       NEXTCLOUD_DATA_DIR: /var/www/html/data
@@ -35,7 +41,7 @@ services:
     networks:
       - internal_network
     volumes:
-      - ${HOST_DB_DIR}:/var/lib/mysql
+      - ${DB_DIR}:/var/lib/mysql
     environment:
       MYSQL_DATABASE: nextcloud
       MYSQL_USER: nextcloud

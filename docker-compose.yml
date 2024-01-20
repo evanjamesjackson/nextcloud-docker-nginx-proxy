@@ -3,12 +3,7 @@ version: "3.5"
 services:
   nextcloud-app:
     container_name: nextcloud-app
-    build:
-      dockerfile: ./Dockerfile
-      context: .
-      args:
-        - UID=${UID}
-        - GID=${GID}
+    image: nextcloud:28
     depends_on: 
       - nextcloud-db
     restart: unless-stopped

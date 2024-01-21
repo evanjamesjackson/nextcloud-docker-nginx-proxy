@@ -3,7 +3,7 @@ version: "3.5"
 services:
   nextcloud-app:
     container_name: nextcloud-app
-    image: nextcloud:28
+    image: nextcloud:fpm
     depends_on: 
       - nextcloud-db
     restart: unless-stopped
